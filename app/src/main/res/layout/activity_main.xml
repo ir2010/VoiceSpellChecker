@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/constraintLayout"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/rowLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:hint="Choose Row"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:startIconDrawable="@drawable/ic_baseline_table_rows_24"
+        app:boxCornerRadiusBottomEnd="24dp"
+        app:boxCornerRadiusBottomStart="24dp"
+        app:boxCornerRadiusTopEnd="24dp"
+        app:boxCornerRadiusTopStart="24dp"
+        app:boxStrokeWidth="1dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLines="1"
+            android:autoLink="all"
+            android:text="Row 1"
+            android:textSize="15sp"
+            android:completionThreshold="0"
+            android:focusableInTouchMode="false"
+            android:autoText="true"
+            android:allowClickWhenDisabled="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/prev"
+        android:background="@drawable/app_button"
+        app:layout_constraintTop_toBottomOf="@+id/rowLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/next"
+        app:layout_constraintBottom_toTopOf="@+id/repeat"
+        android:text="Previous"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/next"
+        android:background="@drawable/app_button"
+        app:layout_constraintTop_toBottomOf="@+id/rowLayout"
+        app:layout_constraintLeft_toRightOf="@+id/prev"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/repeat"
+        android:text="Next"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/repeat"
+        android:background="@drawable/app_button"
+        app:layout_constraintTop_toBottomOf="@+id/next"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/mic"
+        android:text="Repeat"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_baseline_mic_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="5dp"
+        android:elevation="0.5dp"
+        android:scaleType="fitXY"
+        app:shapeAppearance="?attr/actionButtonStyle"
+        android:background="@android:color/transparent"
+        app:shapeAppearanceOverlay="@style/imageViewRounded"
+        app:strokeColor="@android:color/white"
+        android:id="@+id/mic"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mic"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxCornerRadiusBottomEnd="24dp"
+        app:boxCornerRadiusBottomStart="24dp"
+        app:boxCornerRadiusTopEnd="24dp"
+        app:boxCornerRadiusTopStart="24dp"
+        android:id="@+id/spokenWordLayout"
+        app:boxStrokeWidth="1dp"
+        app:endIconDrawable="@drawable/ic_baseline_arrow_forward_24"
+        app:endIconMode="custom"
+        android:textColorHint="@color/secondaryTextColor">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:imeOptions="actionDone"
+            android:hint="Type the word"
+            android:textSize="25sp"
+            android:id="@+id/spokenWord"
+            android:inputType="textVisiblePassword"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/giveup"
+        android:background="@drawable/app_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/reset"
+        app:layout_constraintTop_toBottomOf="@+id/spokenWordLayout"
+        android:text="GIVE UP!"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/reset"
+        android:background="@drawable/app_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/giveup"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spokenWordLayout"
+        android:text="RESET"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
